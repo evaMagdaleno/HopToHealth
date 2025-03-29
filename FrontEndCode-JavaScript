@@ -1,0 +1,32 @@
+function determineBreed(color, size, features) {
+    color = color.toLowerCase().trim();
+    size = size.toLowerCase().trim();
+    features = features.toLowerCase().trim();
+
+    if (color.includes("white") && size === "small" && features.includes("long ears")) {
+        return "Holland Lop";
+    } else if (color.includes("brown") && size === "large") {
+        return "Flemish Giant";
+    } else {
+        return "Mixed Breed";
+    }
+}
+
+// List of symptoms and possible causes
+const healthConcerns …d').addEventListener('input', function () {
+        const breed = this.value.trim().toLowerCase();
+        const additionalQuestions = document.getElementById('additional-questions');
+        
+        if (breed === "unknown") {
+            additionalQuestions.style.display = "block";
+        } else {
+            additionalQuestions.style.display = "none";
+        }
+    });
+});
+
+
+// Function to restart and reset the form
+function restart() {
+    location.reload(); // Reloads the page to restart
+}
