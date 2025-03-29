@@ -1,0 +1,82 @@
+
+//Outline
+//Promt the user to ask"What is the known breead of the rabbit?"
+//If the owner is unconcusive of what the bread is then the app will ask questions on the color size and any other distinctive features the rabbit has
+//The by using the infromation fonnd from the answer will will be able to find a conculsive bread
+//To go from there will we promt the user questions based on the unsuall activites the rabbit has been doing and/or phsical features that seem off
+//Based on the questions we will give the top 5 suggetive health conserns based on the most common disseas that rabbit bread is susupable to and the distinctive festures that are being shown
+//Along with the top five suggetive helth conserens we will output the top 3 supplements recomened from vetinarians that would help south the rabbits pain and or help the healing proceses
+//This app sloves the problem of the lack of awareness in health probelms founf in rabbit in turn providing a more rabbits a long life and a happy healthy body to in
+//This takes the the step of going driving an hour for an exotic animal clinic, for the majpotiy of vetinariesna only work with cats or dog overlooking the car rabbit need and how to help them for the lack of awareness in the indutry
+//This also helps owners save money on easily fixable healthproblems and lets the owner use the money for a vet only on a seirses health consern that our app or suggetive suplemets could nto help with. 
+
+package com.mycompany.hoptohealth;
+
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+
+public class HopToHealth {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Welcome to HopToHealth - Rabbit Health Diagnostic System");
+        System.out.print("What is the known breed of the rabbit? (Type 'unknown' if unsure): ");
+        String breed = scanner.nextLine().trim().toLowerCase();
+
+        if (breed.equals("unknown")) {
+            breed = determineBreed(scanner);
+        }
+
+        System.out.println("Rabbit breed identified as: " + breed);
+        diagnoseHealthIssues(scanner, breed);
+    }
+
+    private static String determineBreed(Scanner scanner) {
+        System.out.print("What is the rabbit's color? ");
+        String color = scanner.nextLine().trim().toLowerCase();
+        
+        System.out.print("What is the rabbit's size? (small, medium, large): ");
+        String size = scanner.nextLine().trim().toLowerCase();
+        
+        System.out.print("Any distinctive features? (e.g., long ears, fluffy tail, spots): ");
+        String features = scanner.nextLine().trim().toLowerCase();
+        
+        if (color.contains("white") && size.equals("small") && features.contains("long ears")) {
+            return "Holland Lop";
+        } else if (color.contains("brown") && size.equals("large")) {
+            return "Flemish Giant";
+        } else {
+            return "Mixed Breed";
+        }
+    }
+    
+    private static void diagnoseHealthIssues(Scanner scanner, String breed) {
+        System.out.println("\nEnter symptoms your rabbit is experiencing (comma-separated, e.g., lethargy, runny nose, loss of appetite): ");
+        String[] symptoms = scanner.nextLine().trim().toLowerCase().split(",");
+        
+        Map<String, String> healthConcerns = new HashMap<>();
+        healthConcerns.put("lethargy", "Possible causes: GI Stasis, Heat Stroke, Infection");
+        healthConcerns.put("runny nose", "Possible causes: Respiratory Infection, Snuffles");
+        healthConcerns.put("loss of appetite", "Possible causes: Dental Issues, GI Stasis");
+        
+        System.out.println("\nTop health concerns based on symptoms:");
+        for (String symptom : symptoms) {
+            symptom = symptom.trim();
+            if (healthConcerns.containsKey(symptom)) {
+                System.out.println("- " + healthConcerns.get(symptom));
+            }
+        }
+        
+        suggestSupplements();
+    }
+    
+    private static void suggestSupplements() {
+        System.out.println("\nRecommended Supplements:");
+        System.out.println("1. Oxbow Critical Care - Helps with digestion and recovery");
+        System.out.println("2. Benebac Probiotic - Supports gut health");
+        System.out.println("3. Papaya Tablets - Helps prevent hairball buildup");
+        
+        System.out.println("\nNote: Consult a veterinarian for serious concerns.");
+    }
+}
