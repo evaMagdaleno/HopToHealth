@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f6f3;
+    text-align: center;
+    margin: 50px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+}
+
+h1 {
+    color: #6b705c;
+}
+h2 {
+    color: rgb(211, 179, 179);
+}
+body{
+    color: rgb(156, 98, 98);
+}
+button {
+    background-color: #b7e4c7;
+    border: none;
+    padding: 10px 20px;
+    margi…t: 100vh; /* Ensures the image fills the viewport */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+button:hover {
+    background-color: #45a049;
+}
+
+#result-container {
+    display: none;
+    margin-top: 20px;
+}
